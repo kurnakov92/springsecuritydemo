@@ -24,10 +24,12 @@ public class ReportController {
 
     @RequestMapping(value = "report.csv", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public String getReportCsv(@RequestParam String filePath){
+    public String getReportCsv(@RequestParam String text){
         String result = "";
-        if (filePath != null) {
-
+        if (text != null) {
+            result = reportService.reportCsv(text);
+        } else {
+            result = "Текста нет";
         }
         return result;
     }
