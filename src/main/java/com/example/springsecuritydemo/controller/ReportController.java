@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("report")
+@RequestMapping("/report")
 public class ReportController {
 
     @Autowired
     private ReportService reportService;
 
-    @RequestMapping("demo")
+    @RequestMapping("/demo")
     public String demo() {
         return "Hello";
     }
 
-    @RequestMapping(value = "report.csv", method = RequestMethod.GET,
+    @RequestMapping(value = "/report.csv", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public String getReportCsv(@RequestParam String text){
         String result = "";
